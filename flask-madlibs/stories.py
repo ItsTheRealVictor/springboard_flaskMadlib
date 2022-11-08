@@ -37,12 +37,6 @@ class Story:
 
 # Here's a story to get you started
 
-test_answers = {'place': 'my house',
-                'noun': 'dog',
-                'verb': 'smooch',
-                'adjective': 'nice',
-                'plural_noun': 'farts'
-                }
 
 story = Story(
     ["place", "noun", "verb", "adjective", "plural_noun"],

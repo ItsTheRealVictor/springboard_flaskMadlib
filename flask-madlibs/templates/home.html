@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>{% block title %}nicenicenicenice{% endblock %}</title>
+        <title>{% block title %}Let's make a MadLib{% endblock %}</title>
         <link rel="stylesheet" href="/static/css/madstyles.css" />
         <script src="http://unpkg.com/jquery"></script>
     </head>
     <body>
-        <h1>This is the main MadLib Page</h1>
+        <h1>Time for a madlib</h1>
 
-{% if example_prompts %}
     
-<p>
-    {% for prompt in example_prompts %}
-    <h1>{{prompt}}</h1>
-    {% endfor %}
-</p>    
-{% endif %}
         <form action="/story">
+
+            {% for prompt in example_prompts %}
+                <label for="">{{prompt}}: </label>
+                <input type="text" placeholder="{{prompt}} goes here" name="{{prompt}}"><br>
+            {% endfor %}
+
             <button>submit</button>
     </form>
     </body>

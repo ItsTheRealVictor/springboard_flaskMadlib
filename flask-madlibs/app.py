@@ -8,16 +8,24 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = "farts"
 debug = DebugToolbarExtension(app)
 
-example_prompts = ['place', 'verb', 'adjective', 'noun1', 'noun2']
-example_story = 'Yesterday in the {place}, {noun1} had to {verb} their really {adjective} {noun2}'
+first_example_prompts = ['place', 'verb', 'adjective', 'noun1', 'noun2']
+first_example_story = 'Yesterday in the {place}, {noun1} had to {verb} their really {adjective} {noun2}'
+first_example = Story(first_example_prompts, first_example_story)
+
+
 
 @app.route('/')
 def main_page():
-    return render_template('home.html', example_prompts=example_prompts)
+    return render_template('home.html', example_prompts=first_example.prompts)
 
 @app.route('/story')
 def show_story():
-    return 'its a story'
+
+    # had to look at the solution for this line
+    words = first_example.generate(request.args)
+
+
+    return render_template('story.html', words=words)
 
 
 
