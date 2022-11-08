@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}TITLE GOES HERE{% endblock %}</title>
+        <link rel="stylesheet" href="/static/css/madstyles.css" />
+        <script src="http://unpkg.com/jquery"></script>
+    </head>
+    <body>
+        <h1>This is the main MadLib Page</h1>
+
+
+        <form action="/story">
+            <input type="text" placeholder="put some text" name="test">
+            
+        </form>
+    </body>
+</html>
